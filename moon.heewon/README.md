@@ -2,5 +2,5 @@
 
 ## Important Links
 
-- https://moonmoon94.com
-- https://moonmoon94.com/aau/wnm617_02/moon.heewon
+- http://moonmoon94.com
+- http://moonmoon94.com/aau/wnm617/moon.heewon/index.html
