@@ -3,4 +3,4 @@
 ## Important Links
 
 - http://moonmoon94.com
-- http://moonmoon94.com/aau/wnm617/moon.heewon/index.html
+- http://moonmoon94.com/aau/wnm617/moon.heewon
