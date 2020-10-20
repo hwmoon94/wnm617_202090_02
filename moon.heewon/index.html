@@ -32,6 +32,8 @@
                <label for="signin-password" class="form-label">Password</label>
                <input id="signin-password" type="password" class="form-input" data-role="none" placeholder="Type your password">
             </div>
+            <div class="signin-prompt">
+            </div>
             <div class="form-control">
                <input type="submit" class="form-button" value="Sign In" data-role="none">
             </div>
@@ -72,7 +74,7 @@
    <section data-role="page" id="recent-page">
       <div data-role="main">
          <div class="floater top right">
-            <div class="btn-circle" data-activate="#recent-add-modal">&equiv;</div>
+            <div class="btn-circle" data-activate="#recent-add-modal" data-deactivate="#recent-profile-modal">&equiv;</div>
          </div>
          <div class="floater bottom right">
             <div class="btn-circle" data-toggle="#recent-profile-modal">&plus;</div>
@@ -113,19 +115,90 @@
       </header>
       <div data-role="main">
          <div class="overscroll">
-            <ul>
-               <!-- li*10>a[href=#animal-profile-page]{Animal $} -->
-               <li><a href="#animal-profile-page">Animal 1</a></li>
-               <li><a href="#animal-profile-page">Animal 2</a></li>
-               <li><a href="#animal-profile-page">Animal 3</a></li>
-               <li><a href="#animal-profile-page">Animal 4</a></li>
-               <li><a href="#animal-profile-page">Animal 5</a></li>
-               <li><a href="#animal-profile-page">Animal 6</a></li>
-               <li><a href="#animal-profile-page">Animal 7</a></li>
-               <li><a href="#animal-profile-page">Animal 8</a></li>
-               <li><a href="#animal-profile-page">Animal 9</a></li>
-               <li><a href="#animal-profile-page">Animal 10</a></li>
-            </ul>
+            <div class="animallist">
+               <a href="#animal-profile-page" class="animallist-item">
+                  <div class="animallist-image">
+                     <img src="img/aliens.jpg" alt="aliens">
+                  </div>
+                  <div class="animallist-description">
+                     <div class="animallist-name">Aliens</div>
+                     <div class="animallist-type"><strong></strong> Toy Story</div>
+                  </div>
+               </a>
+               <a href="#animal-profile-page" class="animallist-item">
+                  <div class="animallist-image">
+                     <img src="img/anna.png" alt="anna">
+                  </div>
+                  <div class="animallist-description">
+                     <div class="animallist-name">Anna</div>
+                     <div class="animallist-type"><strong></strong> Frozen</div>
+                  </div>
+               </a>
+               <a href="#animal-profile-page" class="animallist-item">
+                  <div class="animallist-image">
+                     <img src="img/ariel.png" alt="ariel">
+                  </div>
+                  <div class="animallist-description">
+                     <div class="animallist-name">Ariel</div>
+                     <div class="animallist-type"><strong></strong> Little Mermaid</div>
+                  </div>
+               </a>
+               <a href="#animal-profile-page" class="animallist-item">
+                  <div class="animallist-image">
+                     <img src="img/buzz.png" alt="buzz">
+                  </div>
+                  <div class="animallist-description">
+                     <div class="animallist-name">Buzz</div>
+                     <div class="animallist-type"><strong></strong> Toy Story</div>
+                  </div>
+               </a>
+               <a href="#animal-profile-page" class="animallist-item">
+                  <div class="animallist-image">
+                     <img src="img/cinderella.png" alt="cinderella">
+                  </div>
+                  <div class="animallist-description">
+                     <div class="animallist-name">Cinderella</div>
+                     <div class="animallist-type"><strong></strong> Cinderella</div>
+                  </div>
+               </a>
+                 </a>
+               <a href="#animal-profile-page" class="animallist-item">
+                  <div class="animallist-image">
+                     <img src="img/elsa.png" alt="elsa">
+                  </div>
+                  <div class="animallist-description">
+                     <div class="animallist-name">Elsa</div>
+                     <div class="animallist-type"><strong></strong> Frozen</div>
+                  </div>
+               </a>
+               <a href="#animal-profile-page" class="animallist-item">
+                  <div class="animallist-image">
+                     <img src="img/mickey.png" alt="mickey">
+                  </div>
+                  <div class="animallist-description">
+                     <div class="animallist-name">Mickey</div>
+                     <div class="animallist-type"><strong></strong> Mickey and Friends</div>
+                  </div>
+               </a>
+                <a href="#animal-profile-page" class="animallist-item">
+                  <div class="animallist-image">
+                     <img src="img/minnie.png" alt="minnie">
+                  </div>
+                  <div class="animallist-description">
+                     <div class="animallist-name">Minnie</div>
+                     <div class="animallist-type"><strong></strong> Mickey and Friends</div>
+                  </div>
+               </a>
+               <a href="#animal-profile-page" class="animallist-item">
+                  <div class="animallist-image">
+                     <img src="img/woodie.png" alt="woodie">
+                  </div>
+                  <div class="animallist-description">
+                     <div class="animallist-name">Woodie</div>
+                     <div class="animallist-type"><strong></strong> Toy Story</div>
+                  </div>
+               </a>
+            </div>
          </div>
       </div>
       <footer data-role="footer">
@@ -139,19 +212,19 @@
       <div class="modal" id="list-add-modal">
          <div class="modal-back" data-deactivate="#list-add-modal"></div>
          <form id="list-add-form" data-ajax="false" class="modal-popup">
-            <div class="modal-head">Add Animal</div>
+            <div class="modal-head">Add Character</div>
             <div class="modal-body">
                <div class="form-control">
                   <label for="list-add-name" class="form-label">Name</label>
-                  <input id="list-add-name" type="text" class="form-input" data-role="none" placeholder="Type animal name">
+                  <input id="list-add-name" type="text" class="form-input" data-role="none" placeholder="Type character name">
                </div>
                <div class="form-control">
-                  <label for="list-add-type" class="form-label">Type</label>
-                  <input id="list-add-type" type="text" class="form-input" data-role="none" placeholder="Type animal type">
+                  <label for="list-add-type" class="form-label">Title</label>
+                  <input id="list-add-type" type="text" class="form-input" data-role="none" placeholder="Type movie title">
                </div>
                <div class="form-control">
-                  <label for="list-add-breed" class="form-label">Breed</label>
-                  <input id="list-add-breed" type="text" class="form-input" data-role="none" placeholder="Type animal breed">
+                  <label for="list-add-breed" class="form-label">Type</label>
+                  <input id="list-add-breed" type="text" class="form-input" data-role="none" placeholder="Type charactre type">
                </div>
             </div>
             <div class="modal-foot">
@@ -163,8 +236,14 @@
 
    <section data-role="page" id="user-profile-page">
       <div data-role="main">
-         User Profile
-         <p><a href="#" class="js-logout">Logout</a></p>
+         <div class="profile-image">
+            <img src="img/profile.jpg" alt="profile">
+         </div>
+         <div class="profile-body">
+            <div class="profile-name">Kenneth</div>
+            <div class="profile-email"><strong>Email</strong>: ken@neth.com</div>
+         </div>
+         <p><a href="#settings-page">Settings</a></p>
       </div>
       <footer data-role="footer">
          <ul>
@@ -173,6 +252,76 @@
             <li><a href="#user-profile-page">Profile</a></li>
          </ul>
       </footer>
+   </section>
+
+   <section data-role="page" id="settings-page">
+      <header data-role="header">
+         <h1>Settings Page</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <ul class="settings-list">
+            <li class="settings-item"><a href="#profile-settings-page">Profile Settings</a></li>
+            <li class="settings-item"><a href="#password-settings-page">Change Password</a></li>
+            <li class="settings-item"><a href="#" class="js-logout">Logout</a></li>
+         </ul>
+      </div>
+   </section>
+
+   <section data-role="page" id="profile-settings-page">
+      <header data-role="header">
+         <h1>Profile Settings</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" data-rel="back">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main" style="padding:1em">
+         <form id="profile-form" data-ajax="false">
+            <div class="form-control">
+               <label for="profile-username" class="form-label">Username</label>
+               <input id="profile-username" type="text" class="form-input" data-role="none" placeholder="Type your username" value="kenbro">
+            </div>
+            <div class="form-control">
+               <label for="profile-name" class="form-label">Full Name</label>
+               <input id="profile-name" type="text" class="form-input" data-role="none" placeholder="Type your name" value="Kenneth Jenkins">
+            </div>
+            <div class="form-control">
+               <label for="profile-email" class="form-label">Email</label>
+               <input id="profile-email" type="text" class="form-input" data-role="none" placeholder="Type your email" value="ken@neth.com">
+            </div>
+         </form>
+      </div>
+   </section>
+
+   <section data-role="page" id="password-settings-page">
+      <header data-role="header">
+         <h1>Password Settings</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" data-rel="back">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main" style="padding:1em">
+         <form id="password-form" data-ajax="false">
+            <div class="form-control">
+               <label for="password-oldpassword" class="form-label">Old Password</label>
+               <input id="password-oldpassword" type="text" class="form-input" data-role="none" placeholder="Type your old password">
+            </div>
+            <div class="form-control">
+               <label for="password-newpassword" class="form-label">New Password</label>
+               <input id="password-newpassword" type="text" class="form-input" data-role="none" placeholder="Type your new password">
+            </div>
+            <div class="form-control">
+               <label for="password-confirm" class="form-label">Confirm Password</label>
+               <input id="password-confirm" type="text" class="form-input" data-role="none" placeholder="Type your new password again">
+            </div>
+         </form>
+      </div>
    </section>
 
    <section data-role="page" id="animal-profile-page">
@@ -186,6 +335,17 @@
          Animal Profile
       </div>
    </section>
+
+
+
+
+
+
+   <div class="modal" id="warning-modal">
+      <div class="modal-toast top" data-deactivate="#warning-modal">
+         <div class="message">Message</div>
+      </div>
+   </div>
 
 </body>
 </html>
