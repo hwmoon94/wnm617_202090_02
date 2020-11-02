@@ -1,5 +1,3 @@
-
-
 const makeWarning = (target,message) => {
    $(target).addClass("active")
       .find(".message").html(message);
@@ -31,7 +29,7 @@ const checkSigninForm = () => {
       sessionStorage.removeItem('userId');
 
       // DO SOMETHING HERE
-      makeWarning("#warning-modal","Sign In Failed");
+      makeWarning("#warning-modal","Login failed");
    }
 
    checkUserId();
