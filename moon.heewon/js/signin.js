@@ -1,3 +1,5 @@
+
+
 const makeWarning = (target,message) => {
    $(target).addClass("active")
       .find(".message").html(message);
@@ -8,15 +10,21 @@ const makeWarning = (target,message) => {
 
 
 
-const checkSigninForm = () => {
+const checkSigninForm = async () => {
    let user = $("#signin-username").val();
    let pass = $("#signin-password").val();
 
    console.log(user,pass)
+
    if(user=="" || pass=="") {
       makeWarning("#warning-modal","Type a Username and Password");
       return;
    }
+
+   let found_user = await query({
+      type:'check_signin',
+      params:[user,pass]
+   });
 
    if(user == 'user' && pass == 'pass') {
       // logged in
@@ -29,7 +37,7 @@ const checkSigninForm = () => {
       sessionStorage.removeItem('userId');
 
       // DO SOMETHING HERE
-      makeWarning("#warning-modal","Login failed");
+      makeWarning("#warning-modal","Sign In Failed");
    }
 
    checkUserId();

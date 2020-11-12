@@ -36,32 +36,20 @@
   '{{repeat(50)}}',
   {
     id: '{{index(1)}}',
-    user_id:'{{integer(1,10)}}',
-    
-    name: '{{company()}}',
-    
-    
-    type: '{{random("dog","horse","cat")}}',
-    breed: function(tags) {
-      var breeds = {
-        "dog":["labrador","pitbull","dachsund","yorkie"],
-        "horse":["shetland","andalusian","unicorn"],
-        "cat":["calico","ginger","jellicle","tuxedo","siamese"]
-      };
-      var chosen_type = breeds[this.type];
-      var chosen_index = tags.integer(0,chosen_type.length-1);
-      return chosen_type[chosen_index];
-    },
-    
-    description: '{{lorem(3, "sentences")}}',
-    
+    uid: '{{integer(1,10)}}',
+    name: '{{firstName()}}',
+    breed: '{{random("German Shepherd","Bulldog", "Poodle", "Labrador Retriever", "Beagle", "Golden Retriever", "Chihuahua", "Greyhound", "Rottewiler")}}',
+    years: '{{integer(1, 10)}}',
+    months: '{{integer(1, 12)}}',
+    color: '{{random("Black", "White", "Gray", "Brown", "Light Brown","Golden")}}',
+    gender: '{{random("Female", "Male")}}',
+    description: '{{lorem(2,"sentences")}}',
     img: function(tags) {
       return 'https://via.placeholder.com/400/' +
-        tags.integer(700,999) +
-        '/fff/?text=' +
+        tags.integer(700,999) + '/fff/?text=' +
         this.name;
     },
-    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
+    data_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
   }
 ]
 
