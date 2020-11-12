@@ -26,10 +26,10 @@ const checkSigninForm = async () => {
       params:[user,pass]
    });
 
-   if(user == 'user' && pass == 'pass') {
+   if(found_user.result.length) {
       // logged in
       console.log('success');
-      sessionStorage.userId = 3;
+      sessionStorage.userId = found_user.result[0].id;
       $("#signin-form")[0].reset();
    } else {
       // not logged in
