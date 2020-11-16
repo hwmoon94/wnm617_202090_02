@@ -435,8 +435,10 @@ a:hover {
 .animallist-description {
    padding:0.5em;
 }
-.animallist-type,
-.animallist-breed {
+.animallist-breed,
+.animallist-color,
+.animallist-years,
+.animallist-gender, {
    font-size:0.8em;
 }
 .animallist-name {
