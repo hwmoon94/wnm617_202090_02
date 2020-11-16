@@ -108,7 +108,7 @@
       </footer>
    </section>
 
-   <section data-role="page" id="list-page">
+ <section data-role="page" id="list-page">
       <header data-role="header">
          <h1>List Page</h1>
          <ul>
@@ -118,107 +118,27 @@
       </header>
       <div data-role="main">
          <div class="overscroll">
-            <div class="animallist">
-               <a href="#animal-profile-page" class="animallist-item">
-                  <div class="animallist-image">
-                     <img src="img/anna.png" alt="anna">
-                  </div>
-                  <div class="animallist-description">
-                     <div class="animallist-name">Anna</div>
-                     <div class="animallist-type"><strong></strong> Frozen</div>
-                  </div>
-               </a>
-               <a href="#animal-profile-page" class="animallist-item">
-                  <div class="animallist-image">
-                     <img src="img/ariel.png" alt="ariel">
-                  </div>
-                  <div class="animallist-description">
-                     <div class="animallist-name">Ariel</div>
-                     <div class="animallist-type"><strong></strong> Little Mermaid</div>
-                  </div>
-               </a>
-               <a href="#animal-profile-page" class="animallist-item">
-                  <div class="animallist-image">
-                     <img src="img/buzz.png" alt="buzz">
-                  </div>
-                  <div class="animallist-description">
-                     <div class="animallist-name">Buzz</div>
-                     <div class="animallist-type"><strong></strong> Toy Story</div>
-                  </div>
-               </a>
-               <a href="#animal-profile-page" class="animallist-item">
-                  <div class="animallist-image">
-                     <img src="img/cinderella.png" alt="cinderella">
-                  </div>
-                  <div class="animallist-description">
-                     <div class="animallist-name">Cinderella</div>
-                     <div class="animallist-type"><strong></strong> Cinderella</div>
-                  </div>
-               </a>
-                 </a>
-               <a href="#animal-profile-page" class="animallist-item">
-                  <div class="animallist-image">
-                     <img src="img/elsa.png" alt="elsa">
-                  </div>
-                  <div class="animallist-description">
-                     <div class="animallist-name">Elsa</div>
-                     <div class="animallist-type"><strong></strong> Frozen</div>
-                  </div>
-               </a>
-               <a href="#animal-profile-page" class="animallist-item">
-                  <div class="animallist-image">
-                     <img src="img/mickey.png" alt="mickey">
-                  </div>
-                  <div class="animallist-description">
-                     <div class="animallist-name">Mickey</div>
-                     <div class="animallist-type"><strong></strong> Mickey and Friends</div>
-                  </div>
-               </a>
-                <a href="#animal-profile-page" class="animallist-item">
-                  <div class="animallist-image">
-                     <img src="img/minnie.png" alt="minnie">
-                  </div>
-                  <div class="animallist-description">
-                     <div class="animallist-name">Minnie</div>
-                     <div class="animallist-type"><strong></strong> Mickey and Friends</div>
-                  </div>
-               </a>
-               <a href="#animal-profile-page" class="animallist-item">
-                  <div class="animallist-image">
-                     <img src="img/woodie.png" alt="woodie">
-                  </div>
-                  <div class="animallist-description">
-                     <div class="animallist-name">Woodie</div>
-                     <div class="animallist-type"><strong></strong> Toy Story</div>
-                  </div>
-               </a>
-            </div>
+            <div class="animallist"></div>
          </div>
       </div>
-      <footer data-role="footer">
-         <ul>
-            <li><a href="#recent-page">Recent</a></li>
-            <li><a href="#list-page">List</a></li>
-            <li><a href="#user-profile-page">Profile</a></li>
-         </ul>
-      </footer>
+      <footer data-role="footer" data-template="#footer-template"></footer>
 
       <div class="modal" id="list-add-modal">
          <div class="modal-back" data-deactivate="#list-add-modal"></div>
          <form id="list-add-form" data-ajax="false" class="modal-popup">
-            <div class="modal-head">Add Character</div>
+            <div class="modal-head">Add Animal</div>
             <div class="modal-body">
                <div class="form-control">
                   <label for="list-add-name" class="form-label">Name</label>
-                  <input id="list-add-name" type="text" class="form-input" data-role="none" placeholder="Type character name">
+                  <input id="list-add-name" type="text" class="form-input" data-role="none" placeholder="Type animal name">
                </div>
                <div class="form-control">
-                  <label for="list-add-type" class="form-label">Title</label>
-                  <input id="list-add-type" type="text" class="form-input" data-role="none" placeholder="Type movie title">
+                  <label for="list-add-type" class="form-label">Type</label>
+                  <input id="list-add-type" type="text" class="form-input" data-role="none" placeholder="Type animal type">
                </div>
                <div class="form-control">
-                  <label for="list-add-breed" class="form-label">Type</label>
-                  <input id="list-add-breed" type="text" class="form-input" data-role="none" placeholder="Type charactre type">
+                  <label for="list-add-breed" class="form-label">Breed</label>
+                  <input id="list-add-breed" type="text" class="form-input" data-role="none" placeholder="Type animal breed">
                </div>
             </div>
             <div class="modal-foot">
@@ -230,18 +150,37 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
    <section data-role="page" id="user-profile-page">
       <div data-role="main">
          <div class="profile"></div>
       </div>
-      <footer data-role="footer">
-         <ul>
-            <li><a href="#recent-page">Recent</a></li>
-            <li><a href="#list-page">List</a></li>
-            <li><a href="#user-profile-page">Profile</a></li>
-         </ul>
-      </footer>
+      <footer data-role="footer" data-template="#footer-template"></footer>
+      
    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -309,11 +248,23 @@
             </div>
             <div class="form-control">
                <label for="password-confirm" class="form-label">Confirm Password</label>
-               <input id="password-confirm" type="text" class="form-input" data-role="none" placeholder="Incorrect username and/or password">
+               <input id="password-confirm" type="text" class="form-input" data-role="none" placeholder="Type your new password again">
             </div>
          </form>
       </div>
    </section>
+
+
+
+
+
+
+
+
+
+
+
+
 
    <section data-role="page" id="animal-profile-page">
       <header data-role="header">
@@ -322,8 +273,14 @@
             <li><a href="#" data-rel="back">Back</a></li>
          </ul>
       </header>
-      <div data-role="main">
-         Animal Profile
+      <div data-role="main" class="display-flex flex-column">
+         <div class="animal-top">
+            <div class="map"></div>
+         </div>
+         <div class="animal-bottom">
+            <div class="profile"></div>
+         </div>
+         
       </div>
    </section>
 
@@ -337,6 +294,30 @@
          <div class="message">Message</div>
       </div>
    </div>
+
+
+
+
+
+
+
+
+   <script type="text/template" id="footer-template">
+   <ul>
+      <li><a href="#recent-page">
+         <div class="nav-icon"><img src="img/icon/map.svg" alt=""></div>
+         <div class="nav-label">Recent</div>
+      </a></li>
+      <li><a href="#list-page">
+         <div class="nav-icon"><img src="img/icon/list.svg" alt=""></div>
+         <div class="nav-label">List</div>
+      </a></li>
+      <li><a href="#user-profile-page">
+         <div class="nav-icon"><img src="img/icon/profile.svg" alt=""></div>
+         <div class="nav-label">Profile</div>
+      </a></li>
+   </ul>
+   </script>
 
 </body>
 </html>
