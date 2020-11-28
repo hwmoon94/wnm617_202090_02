@@ -20,7 +20,30 @@ const RecentPage = async() => {
    //console.log(map_el.data('map'))
 
    makeMarkers(map_el,valid_animals);
+   // makeMarkers(map_el,[]);
 
+   map_el.data("markers").forEach((o,i)=>{
+      o.addListener("click",function(){
+         // console.log("honk")
+
+         /*
+         // SIMPLE EXAMPLE
+         sessionStorage.animalId = valid_animals[i].animal_id;
+         $.mobile.navigate("#animal-profile-page");
+         */
+
+         // INFOWINDOW EXAMPLE
+         // map_el.data("infoWindow")
+         //    .open(map_el.data("map"),o);
+         // map_el.data("infoWindow")
+         //    .setContent(makeAnimalPopup(valid_animals[i]));
+
+         // ACTIVATE EXAMPLE
+         $("#recent-animal-modal").addClass("active");
+         $("#recent-animal-modal .modal-body")
+            .html(makeAnimalPopup(valid_animals[i]))
+      })
+   })
 }
 
 
@@ -56,6 +79,18 @@ const UserProfilePage = async() => {
    $("#user-profile-page .profile")
       .html(makeUserProfile(d.result));
 }
+const UserEditPage = async() => {
+   query({
+      type:'user_by_id',
+      params:[sessionStorage.userId]
+   }).then(d=>{
+      console.log(d)
+
+      $("#user-edit-form")
+         .html(makeUserEditForm(d.result[0]));
+   });
+}
+
 
 
 
@@ -82,4 +117,47 @@ const AnimalProfilePage = async() => {
       })
    })
    
+}
+const AnimalEditPage = async() => {
+   query({
+      type:'animal_by_id',
+      params:[sessionStorage.animalId]
+   }).then(d=>{
+      console.log(d)
+
+      $("#animal-edit-form")
+         .html(makeAnimalEditForm(d.result[0]));
+   });
+}
+
+
+
+
+
+
+const LocationAddPage = async() => {
+   let map_el = await makeMap("#location-add-page .map");
+   makeMarkers(map_el,[]);
+
+   let map = map_el.data("map");
+
+   map.addListener("click",function(e){
+      console.log(e, map.getCenter())
+
+      let posFromClick = {
+         lat:e.latLng.lat(),
+         lng:e.latLng.lng(),
+         icon:"img/icon/marker.svg"
+      };
+      let posFromCenter = {
+         lat:map.getCenter().lat(),
+         lng:map.getCenter().lng(),
+         icon:"img/icon/marker.svg"
+      };
+
+      $("#location-add-lat").val(posFromClick.lat)
+      $("#location-add-lng").val(posFromClick.lng)
+
+      makeMarkers(map_el,[posFromClick])
+   })
 }

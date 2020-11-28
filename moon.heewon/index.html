@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Meet Disney</title>
@@ -11,12 +13,15 @@
    <script src="lib/js/jquery-2.2.4.min.js"></script>
 
    <script src="js/functions.js"></script>
+   <script src="js/maps.js"></script>
    <script src="js/pages.js"></script>
    <script src="js/parts.js"></script>
    <script src="js/signin.js"></script>
    <script src="js/app.js"></script>
 
    <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+
+   <script   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG4Rq-MNqn8eEkR7sBJZGljxO1EnLY2EY"  defer></script>
 
 </head>
 <body>
@@ -74,38 +79,44 @@
       </div>
    </section>
 
+
+
+
+
+
+
+
    <section data-role="page" id="recent-page">
       <div data-role="main">
-         <div class="floater top right">
+         <div class="map"></div>
+
+         <!-- <div class="floater top right">
             <div class="btn-circle" data-activate="#recent-add-modal" data-deactivate="#recent-profile-modal">&equiv;</div>
          </div>
          <div class="floater bottom right">
             <div class="btn-circle" data-toggle="#recent-profile-modal">&plus;</div>
          </div>
+         -->
 
-
-         <div class="modal" id="recent-add-modal">
-            <div class="modal-back" data-deactivate="#recent-add-modal"></div>
+         <div class="modal" id="recent-animal-modal">
             <div class="modal-drawer bottom">
+               <div class="modal-close-floater top right">
+                  <div class="btn-circle" data-deactivate="#recent-animal-modal">&times;</div>
+               </div>
                <div class="modal-head">head</div>
-               <div class="modal-body">body</div>
+               <div class="modal-body"></div>
             </div>
          </div>
 
-         <div class="modal" id="recent-profile-modal">
+         <!-- <div class="modal" id="recent-profile-modal">
             <div class="modal-drawer left">
                <div class="modal-head">Add Location</div>
                <div class="modal-body">Add List</div>
             </div>
-         </div>
+         </div> -->
       </div>
-      <footer data-role="footer">
-         <ul>
-            <li><a href="#recent-page">Recent</a></li>
-            <li><a href="#list-page">List</a></li>
-            <li><a href="#user-profile-page">Profile</a></li>
-         </ul>
-      </footer>
+      <footer data-role="footer" data-template="#footer-template"></footer>
+
    </section>
 
  <section data-role="page" id="list-page">
@@ -265,23 +276,85 @@
 
 
 
-
-   <section data-role="page" id="animal-profile-page">
+<section data-role="page" id="animal-profile-page">
       <header data-role="header">
          <h1>Animal Page</h1>
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back">
+               <img src="img/icon/left.svg" alt="" class="icon">
+            </a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#animal-edit-page">
+               <img src="img/icon/pencil.svg" alt="" class="icon">
+            </a></li>
          </ul>
       </header>
-      <div data-role="main">
+      <div data-role="main" class="display-flex flex-column">
+  
+         <div class="animal-top">
+            <div class="map"></div>
+         </div>
+         <div class="animal-bottom">
             <div class="profile"></div>
-      </div>
+         </div>
+         
          
       </div>
    </section>
 
+<section data-role="page" id="animal-add-page">
+      <header data-role="header">
+         <h1>Animal Info</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-animal-add">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main" class="display-flex flex-column">
+         <form id="animal-add-form" data-ajax="false" style="padding:1em">
+            <input type="hidden" id="animal-add-destination" value="#list-page">
+            <div class="form-control">
+               <label for="animal-add-name" class="form-label">Name</label>
+               <input id="animal-add-name" type="text" class="form-input" data-role="none" placeholder="Type animal name">
+            </div>
+            <div class="form-control">
+               <label for="animal-add-breed" class="form-label">Breed</label>
+               <input id="animal-add-breed" type="text" class="form-input" data-role="none" placeholder="Type animal breed">
+            </div>
+            <div class="form-control">
+               <label for="animal-add-color" class="form-label">Color</label>
+               <input id="animal-add-color" type="text" class="form-input" data-role="none" placeholder="Type animal color">
+            </div>
+            <div class="form-control">
+               <label for="animal-add-years" class="form-label">Years</label>
+               <input id="animal-add-years" type="text" class="form-input" data-role="none" placeholder="Type animal years">
+            </div>
+            <div class="form-control">
+               <label for="animal-add-gender" class="form-label">Gender</label>
+               <input id="animal-add-gender" type="text" class="form-input" data-role="none" placeholder="Type animal gender">
+            </div>
+            <div class="form-control">
+               <label for="animal-add-description" class="form-label">Description</label>
+               <textarea id="animal-add-description" class="form-input" data-role="none" placeholder="Type animal description"></textarea>
+            </div>
+         </form>
+      </div>
+   </section>
 
-
+<section data-role="page" id="animal-edit-page">
+      <header data-role="header">
+         <h1>Animal Info</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-animal-edit">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main" class="display-flex flex-column">
+         <form id="animal-edit-form" data-ajax="false" style="padding:1em"></form>
+      </div>
+   </section>
 
 
 
@@ -305,11 +378,11 @@
          <div class="nav-label">Recent</div>
       </a></li>
       <li><a href="#list-page">
-         <div class="nav-icon"><img src="img/icon/list.svg" alt=""></div>
+         <div class="nav-icon"><img src="img/icon/list.png" alt=""></div>
          <div class="nav-label">List</div>
       </a></li>
       <li><a href="#user-profile-page">
-         <div class="nav-icon"><img src="img/icon/profile.svg" alt=""></div>
+         <div class="nav-icon"><img src="img/icon/profile.png" alt=""></div>
          <div class="nav-label">Profile</div>
       </a></li>
    </ul>

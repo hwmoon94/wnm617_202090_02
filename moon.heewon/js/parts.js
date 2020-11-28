@@ -42,3 +42,113 @@ const makeAnimalProfile = templater(o=>`
 
 </div>
 `);
+
+
+const makeAnimalPopup = o=>`
+<div class="display-flex">
+<div>
+   <img src="${o.img}" alt="" style="width:100px;height:100px">
+</div>
+<div style="padding-left:1em">
+   <div class="profile-name">${o.name}</div>
+   <div class="profile-breed"><strong>Breed</strong>: ${o.breed}</div>
+   <div class="profile-color"><strong>Color</strong>: ${o.color}</div>
+   <div class="profile-years"><strong>Years</strong>: ${o.years}</div>
+   <div class="profile-gender"><strong>Gender</strong>: ${o.gender}</div>
+   <div class="profile-description"><strong>Description</strong>: ${o.description}</div>
+
+</div>
+</div>
+<div>
+<a href="#" class="form-button js-animal-jump" data-id="${o.animal_id}">Visit</a> 
+</div>
+`;
+
+
+
+
+
+
+
+const FormControl = ({namespace,name,displayname,type,placeholder,value}) => {
+   return `<div class="form-control">
+      <label for="${namespace}-${name}" class="form-label">${displayname}</label>
+      <input id="${namespace}-${name}" type="${type}" class="form-input" data-role="none" placeholder="${placeholder}" value="${value}">
+   </div>`;
+}
+
+
+const makeAnimalEditForm = o => `
+${FormControl({
+   namespace:"animal-edit",
+   name:"name",
+   displayname:"Name",
+   type:"text",
+   placeholder:"Type An Animal Name",
+   value:o.name
+})}
+${FormControl({
+   namespace:"animal-edit",
+   name:"breed",
+   displayname:"Breed",
+   type:"text",
+   placeholder:"Type Animal Breed",
+   value:o.breed
+})}
+${FormControl({
+   namespace:"animal-edit",
+   name:"color",
+   displayname:"Color",
+   type:"text",
+   placeholder:"Type Animal Color",
+   value:o.color
+})}
+${FormControl({
+   namespace:"animal-edit",
+   name:"years",
+   displayname:"Years",
+   type:"text",
+   placeholder:"Type the Year of the Animal",
+   value:o.yesrs
+})}
+${FormControl({
+   namespace:"animal-gender",
+   name:"gender",
+   displayname:"Gender",
+   type:"text",
+   placeholder:"Type Animal Gender",
+   value:o.gender
+})}
+<div class="form-control">
+   <label for="animal-edit-description" class="form-label">Description</label>
+   <textarea id="animal-edit-description" class="form-input" data-role="none" placeholder="Type animal description">${o.description}</textarea>
+</div>
+`;
+
+
+const makeUserEditForm = o => `
+${FormControl({
+   namespace:"user-edit",
+   name:"username",
+   displayname:"Username",
+   type:"text",
+   placeholder:"Type Your Username",
+   value:o.username
+})}
+${FormControl({
+   namespace:"user-edit",
+   name:"name",
+   displayname:"Full Name",
+   type:"text",
+   placeholder:"Type Your Full Name",
+   value:o.name
+})}
+${FormControl({
+   namespace:"user-edit",
+   name:"email",
+   displayname:"Email",
+   type:"text",
+   placeholder:"Type Your Email",
+   value:o.email
+})}
+`;
