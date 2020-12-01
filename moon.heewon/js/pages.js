@@ -60,7 +60,7 @@ const ListPage = async() => {
    console.log(d)
 
    $("#list-page .animallist")
-      .html(makeAnimalList(d.result));
+      .html(d.result.length?makeAnimalList(d.result):'You do not have any animal list. Go ahead and add an animal!');
 }
 
 

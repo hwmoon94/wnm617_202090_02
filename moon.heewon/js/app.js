@@ -1,9 +1,7 @@
-
-
-
-
 // Document Ready
 $(()=>{
+
+   console.dir($("#user-edit-form")[0])
 
    checkUserId();
 
@@ -21,9 +19,11 @@ $(()=>{
 
          case 'user-profile-page': UserProfilePage(); break;
          case 'user-edit-page': UserEditPage(); break;
-         
+
          case 'animal-profile-page': AnimalProfilePage(); break;
-         case 'animal-edit-page': AnimalProfileEditPage(); break;
+         case 'animal-edit-page': AnimalEditPage(); break;
+
+         case 'location-add-page': LocationAddPage(); break;
 
       }
    })
@@ -38,6 +38,12 @@ $(()=>{
       e.preventDefault();
       checkSigninForm();
    })
+   .on("submit","#signup-form",function(e){
+      e.preventDefault();
+      checkSignupForm();
+   })
+
+
 
 
    /* FORM SUBMIT BY BUTTON */
@@ -67,6 +73,13 @@ $(()=>{
    .on("click",".js-animal-jump",function(e){
       sessionStorage.animalId = $(this).data("id");
       $.mobile.navigate("#animal-profile-page");
+   })
+   .on("click",".js-location-jump",function(e){
+      sessionStorage.locationId = $(this).data("id");
+      $.mobile.navigate("#location-profile-page");
+   })
+   .on("click",".js-animal-delete",function(e){
+      checkAnimalDelete($(this).data("id"));
    })
 
 
