@@ -1,3 +1,7 @@
+const drawAnimalList = (a,empty_phrase='You do not have any animal list. Go ahead and ass an animal!') => {
+   $("#list-page .animallist")
+      .html(a.length?makeAnimalList(a):empty_phrase);
+}
 
 
 const makeAnimalList = templater(o=>`
@@ -20,6 +24,8 @@ const makeAnimalList = templater(o=>`
 const makeUserProfile = templater(o=>`
 <div class="profile-image">
    <img src="${o.img}" alt="">
+   <div class="floater right bottom">
+      <a href="#user-upload-page"><img class="icon" src="img/icon/pencil.svg"></a>
 </div>
 <div class="profile-body">
    <div class="profile-name">${o.name}</div>
@@ -37,9 +43,9 @@ const makeAnimalProfile = templater(o=>`
    <div class="profile-breed"><strong>Breed</strong>: ${o.breed}</div>
    <div class="profile-color"><strong>Color</strong>: ${o.color}</div>
    <div class="profile-years"><strong>Years</strong>: ${o.years}</div>
-   <div class="profile-gender"><strong>Gender</strong>: ${o.gender}</div>
-   <div class="profile-description"><strong>Description</strong>: ${o.description}</div>
-
+</div>
+<div>
+   <a href="#" class="js-animal-delete" data-id="${o.id}">Delete</a>
 </div>
 `);
 
@@ -109,7 +115,7 @@ ${FormControl({
    displayname:"Years",
    type:"text",
    placeholder:"Type the Year of the Animal",
-   value:o.yesrs
+   value:o.years
 })}
 ${FormControl({
    namespace:"animal-gender",
@@ -152,3 +158,30 @@ ${FormControl({
    value:o.email
 })}
 `;
+
+
+
+
+
+const filterList = (animals,type) => {
+   let a = [...(new Set(animals.map(o=>o[type])))];
+   return templater(o=>`<div class="filter" data-field="${type}" data-value="${o}">${o[0].toUpperCase()+o.substr(1)}</div>`)(a);
+}
+
+const makeFilterList = (animals) => {
+   return `
+   <div class="filter" data-field="type" data-value="all">All</div> | 
+   ${filterList(animals,'type')} | 
+   ${filterList(animals,'breed')} 
+   `;
+}
+
+
+
+
+
+const makeUploaderImage = ({namespace,folder,name}) => {
+   $(`#${namespace}-image`).val(folder+name);
+   $(`#${namespace}-page .image-uploader`)
+      .css({'background-image':`url('${folder+name}')`})
+}

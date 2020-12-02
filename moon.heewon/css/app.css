@@ -394,7 +394,15 @@ a:hover {
    text-align: center;
 }
 
-
+#animal-profile-page .profile-image {
+   display:flex;
+   align-items:center;
+   justify-content:center;
+}
+#animal-profile-page .profile-image img {
+    width: calc(100vw - 8em);
+    height: calc(100vw - 8em);
+}
 
 
 

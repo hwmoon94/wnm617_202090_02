@@ -43,14 +43,16 @@ const checkUserEditForm = () => {
 
 const checkAnimalAddForm = () => {
    let name = $("#animal-add-name").val();
-   let type = $("#animal-add-type").val();
    let breed = $("#animal-add-breed").val();
+   let color = $("#animal-add-color").val();
+   let years = $("#animal-add-years").val();
+   let gender = $("#animal-add-gender").val();
    let description = $("#animal-add-description").val();
 
 
    query({
       type:'insert_animal',
-      params:[sessionStorage.userId,name,type,breed,description]})
+      params:[sessionStorage.userId,name,breed,color, years, gender, description]})
    .then(d=>{
       if(d.error) {
          throw d.error;
@@ -67,14 +69,16 @@ const checkAnimalAddForm = () => {
 
 
 const checkAnimalEditForm = () => {
-   let name = $("#animal-edit-name").val();
-   let type = $("#animal-edit-type").val();
-   let breed = $("#animal-edit-breed").val();
-   let description = $("#animal-edit-description").val();
+   let name = $("#animal-add-name").val();
+   let breed = $("#animal-add-breed").val();
+   let color = $("#animal-add-color").val();
+   let years = $("#animal-add-years").val();
+   let gender = $("#animal-add-gender").val();
+   let description = $("#animal-add-description").val();
 
    query({
       type:'update_animal',
-      params:[name,type,breed,description,sessionStorage.animalId]})
+      params:[name,breed,color, years, gender, description,sessionStorage.animalId]})
    .then(d=>{
       if(d.error) {
          throw d.error;
