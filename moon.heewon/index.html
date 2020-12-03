@@ -4,6 +4,13 @@
 
 
    <meta charset="UTF-8">
+   
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="mobile-web-app-capable" content="yes">
+
+   <link rel="apple-touch-icon" href="./site_logo.png">
+   <link rel="icon" href="./site_logo.png">
+
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Meet Disney</title>
 
@@ -33,7 +40,7 @@
    <section data-role="page" id="signin-page">
       <div data-role="main" class="display-flex flex-column">
          <div class="flex-stretch display-flex flex-align-center flex-justify-center">
-           <img src="img/logo.png" alt="MeetDisney_logo" width="170">
+         <img src="./site_logo.png" class="icon" style="width:80vw;height:80vw;">
          </div>
          <form id="signin-form" data-ajax="false">
             <div class="form-control">
@@ -295,9 +302,11 @@
             </div>
          </div>
          <div class="animal-bottom">
+          <div class="overscroll profile">
             <div class="profile"></div>
          </div>
-         
+         </div>
+
       </div>
    </section>
 
