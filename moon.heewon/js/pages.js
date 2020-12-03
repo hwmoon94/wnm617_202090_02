@@ -57,11 +57,13 @@ const ListPage = async() => {
       params:[sessionStorage.userId]
    });
 
+   $("#list-page .filter-list").html(makeFilterList(d.result))
+
    console.log(d)
 
-   $("#list-page .animallist")
-      .html(d.result.length?makeAnimalList(d.result):'You do not have any animal list. Go ahead and add an animal!');
+   drawAnimalList(d.result);
 }
+
 
 
 

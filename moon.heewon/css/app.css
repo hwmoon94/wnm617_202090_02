@@ -127,6 +127,44 @@ a:hover {
 
 
 
+.hotdog {
+   width:100%;
+   background-color:var(--color-neutral-light);
+
+   padding:0.5em 1em;
+   border-radius:2em;
+   line-height:1;
+   display:inline-flex;
+}
+.hotdog input {
+   background-color:transparent;
+   border-width:0;
+   font:inherit;
+   color:inherit;
+   border-radius:0;
+   padding:0;
+   margin:0;
+   width:100%;
+   flex:1;
+   outline:0;
+}
+.ui-header .hotdog {
+   height:calc(var(--header-height) - 0.4em);
+   vertical-align: middle;
+}
+
+
+
+
+
+
+.list-search {
+   padding:0.2em 0.5em;
+   display: flex;
+   align-items: center;
+}
+
+
 
 
 #signin-form,
@@ -379,6 +417,9 @@ a:hover {
 
 
 /* PROFILE */
+.profile-image {
+  postion:relative;
+}
 .profile-image img {
     border-radius: 50%;
     width: calc(100vw - 4em);
@@ -431,7 +472,9 @@ a:hover {
 
 
 
-
+.animallist {
+   padding:1em;
+}
 .animallist-image img {
     width: 80px;
     height: 80px;
@@ -460,6 +503,14 @@ a:hover {
 }
 
 
+.filter-list {
+    display: flex;
+    overflow: auto;
+}
+.filter {
+    padding: 0px 0.5em;
+    font-weight:bold;
+}
 
 
 
