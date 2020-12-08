@@ -5,7 +5,7 @@
 const checkSignupForm = () => {
    let username = $("#signup-username").val();
    let email = $("#signup-email").val();
-   let password = $("#signup-password").val();
+   let  = $("#signup-password").val();
    let passwordconfirm = $("#signup-password-confirm").val();
 
    if(password!=passwordconfirm) {

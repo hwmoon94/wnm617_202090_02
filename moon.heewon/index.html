@@ -9,10 +9,13 @@
    <meta name="mobile-web-app-capable" content="yes">
 
    <link rel="apple-touch-icon" href="./site_logo.png">
-   <link rel="icon" href="./site_logo.png">
+   <link rel="icon" href="./pow_wow.png">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
 
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Meet Disney</title>
+   <title>POW WOW</title>
 
    <link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
    <link rel="stylesheet" href="css/app.css">
@@ -42,23 +45,21 @@
          <div class="flex-stretch display-flex flex-align-center flex-justify-center">
             <img src="./site_logo.png" class="icon" style="width:80vw;height:80vw;">
          </div>
-         <form id="signin-form" data-ajax="false">
-            <div class="form-control">
-               <label for="signin-username" class="form-label">Username</label>
-               <input id="signin-username" type="text" class="form-input" data-role="none" placeholder="Type your username">
+         <form id="signin-form" data-ajax="false" style="padding:3em">
+            <div class="form-control" style="margin-top:0.2em">
+               <input id="signin-username" type="text" class="form-input" data-role="none" placeholder="Username">
             </div>
             <div class="form-control">
-               <label for="signin-password" class="form-label">Password</label>
-               <input id="signin-password" type="password" class="form-input" data-role="none" placeholder="Type your password">
+               <input id="signin-password" type="password" class="form-input" data-role="none" placeholder="Password">
             </div>
             <div class="signin-prompt">
             </div>
-            <div class="form-control">
+            <div class="form-control" style="margin-top: 3em">
                <input type="submit" class="form-button" value="Sign In" data-role="none">
             </div>
-            <div class="form-control signin-alt">
+            <div class="form-control signin-alt" style="color:#ED6646">
                Don't have an account?
-               <a href="#signup-page">Sign Up</a>
+               <a href="#signup-page" style="color:#ED6646">Sign Up</a>
             </div>
          </form>
       </div>
@@ -130,19 +131,31 @@
             </div>
          </div> -->
       </div>
-      <footer data-role="footer" data-template="#footer-template"></footer>
-
+      <footer data-role="footer">
+         <ul>
+            <li><a href="#recent-page"><img src="img/icon/mapnow.png" class="icon"></a></li>
+            <li><a href="#list-page"><img src="img/icon/list.png" class="icon"></a></li>
+            <li><a href="#user-profile-page"><img src="img/icon/profile.png" class="icon"></a></li>
+         </ul>
+      </footer>
    </section>
+
+
+
+
 
     <section data-role="page" id="list-page">
          <header data-role="header">
-            <ul>
+            <h1 style="color:#ED6646;">My Dogs</h1>
+         </header>
+         <header data-role="header">
+         
                <li class="flex-stretch list-search">
                   <form class="hotdog" id="list-search-form" data-ajax="false">
-                     <input type="search" id="list-search-input" data-role="none" placeholder="Search">
+                     <input type="search" id="list-search-input" data-role="none" placeholder="🔍   Search">
                   </form>
                </li>
-            </ul>
+         
          </header>
          <header data-role="header">
             <div class="filter-list"></div>
@@ -155,8 +168,13 @@
                <a href="#animal-add-page" class="btn-circle">&plus;</a>
             </div>
          </div>
-         <footer data-role="footer" data-template="#footer-template"></footer>
-
+      <footer data-role="footer">
+         <ul>
+            <li><a href="#recent-page"><img src="img/icon/map.png" class="icon"></a></li>
+            <li><a href="#list-page"><img src="img/icon/listnow.png" class="icon"></a></li>
+            <li><a href="#user-profile-page"><img src="img/icon/profile.png" class="icon"></a></li>
+         </ul>
+      </footer>
       </section>
 
 
@@ -172,11 +190,25 @@
 
 
    <section data-role="page" id="user-profile-page">
+      <header data-role="header">
+         <h1>User Profile</h1>
+         <ul>
+            <li class="flex-stretch"></li>
+            <li style="margin-top:6px"><a href="#settings-page"><img src="img/icon/settings.png" class="icon-top" style="float:right"></a></div>
+            </li>
+         </ul>
+      </header>
+
       <div data-role="main">
          <div class="profile"></div>
       </div>
-      <footer data-role="footer" data-template="#footer-template"></footer>
-      
+      <footer data-role="footer">
+         <ul>
+            <li><a href="#recent-page"><img src="img/icon/map.png" class="icon"></a></li>
+            <li><a href="#list-page"><img src="img/icon/list.png" class="icon"></a></li>
+            <li><a href="#user-profile-page"><img src="img/icon/profilenow.png" class="icon"></a></li>
+         </ul>
+      </footer>      
    </section>
 
 
@@ -199,12 +231,12 @@
       <header data-role="header">
          <h1>Settings Page</h1>
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+         <li><a href="#" data-rel="back"><img src="img/icon/back.png" class="icon-top"></a></li>         
          </ul>
       </header>
       <div data-role="main">
          <ul class="settings-list">
-            <li class="settings-item"><a href="#profile-settings-page">Profile Settings</a></li>
+            <li class="settings-item"><a href="#user-edit-page">Profile Settings</a></li>
             <li class="settings-item"><a href="#password-settings-page">Change Password</a></li>
             <li class="settings-item"><a href="#" class="js-logout">Logout</a></li>
          </ul>
@@ -215,14 +247,16 @@
       <header data-role="header">
          <h1>Profile Settings</h1>
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back"><img src="img/icon/back.png" class="icon-top"></a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#" data-rel="back">Save</a></li>
          </ul>
 
       </header>
       <div data-role="main">
          <form id="user-edit-form" data-ajax="false" style="padding:1em"></form>
+      <div class="form-control" style="padding:1em">
+            <button type="submit" class="form-button js-user-edit" data-role="none">Save</button>
+      </div>
       </div>
    </section>
 
@@ -230,9 +264,8 @@
       <header data-role="header">
          <h1>Password Settings</h1>
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back"><img src="img/icon/back.png" class="icon-top"></a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#" data-rel="back">Save</a></li>
          </ul>
       </header>
       <div data-role="main" style="padding:1em">
@@ -249,6 +282,9 @@
                <label for="password-confirm" class="form-label">Confirm Password</label>
                <input id="password-confirm" type="text" class="form-input" data-role="none" placeholder="Type your new password again">
             </div>
+            <div class="form-control">
+               <button type="submit" class="form-button js-user-edit" data-role="none">Save</button>
+      </div>
          </form>
       </div>
    </section>
@@ -419,25 +455,6 @@
 
 
 
-
-
-
-   <script type="text/template" id="footer-template">
-   <ul>
-      <li><a href="#recent-page">
-         <div class="nav-icon"><img src="img/icon/map.svg" alt=""></div>
-         <div class="nav-label">Recent</div>
-      </a></li>
-      <li><a href="#list-page">
-         <div class="nav-icon"><img src="img/icon/list.png" alt=""></div>
-         <div class="nav-label">List</div>
-      </a></li>
-      <li><a href="#user-profile-page">
-         <div class="nav-icon"><img src="img/icon/profile.png" alt=""></div>
-         <div class="nav-label">Profile</div>
-      </a></li>
-   </ul>
-   </script>
 
 </body>
 </html>

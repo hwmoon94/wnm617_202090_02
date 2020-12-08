@@ -12,8 +12,8 @@
 
 
    background-color: #f6f6f6;
-   --color-neutral-lighter: #E7E6FC;
-   --color-neutral-light: #B875BF;
+   --color-neutral-lighter: #D8DB5B;
+   --color-neutral-light: #ED6646;
    --color-neutral-mediumer: #b3bdb3;
    --color-neutral-medium: #788578;
    --color-neutral-dark: #304830;
@@ -35,10 +35,9 @@
 body {
    margin:0;
    font-size:100%;
-   font-family:var(--font-sans);
-}
+   font-family: 'Nunito Sans', sans-serif;}
 
-h1,
+
 h2,
 h3,
 h4,
@@ -97,7 +96,7 @@ a:hover {
 }
 .form-label {
     font-size: 0.8em;
-    color: var(--color-neutral-medium);
+    color: black;
     margin: 0.5rem 0;
 }
 .ui-mobile label {
@@ -106,10 +105,13 @@ a:hover {
 .form-input {
     display: inline-block;
     width: 100%;
-    border-width: 0;
-    background-color: var(--color-neutral-lighter);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-neutral-light);
+    background-color: #f6f6f6;
     font: inherit;
-    padding: 0.5em 1em;
+    padding: 0.7em 1em;
+    border-radius: 2em;
     margin: 0;
     outline: 0;
 }
@@ -119,7 +121,9 @@ a:hover {
     border-width: 0;
     background-color: var(--color-neutral-light);
     font: inherit;
-    padding: 0.5em 1em;
+    color:var(--color-neutral-lighter);
+    padding: 1em 1em;
+    border-radius:2em;
     margin: 0;
     outline: 0;
     text-align: center;
@@ -129,7 +133,7 @@ a:hover {
 
 .hotdog {
    width:100%;
-   background-color:var(--color-neutral-light);
+   background-color:white;
 
    padding:0.5em 1em;
    border-radius:2em;
@@ -196,6 +200,7 @@ a:hover {
    flex: 1 1 100%;
    overflow:hidden;
    position:relative;
+   background-color: ;
 }
 .ui-header,
 .ui-footer {
@@ -389,13 +394,13 @@ a:hover {
 
 /* CIRCLE BUTTON */
 .btn-circle {
-    background-color: white;
+    background-color: #D8DB5B;
     line-height: 3rem;
     width: 3rem;
     display: inline-block;
     text-align: center;
     border-radius: 2rem;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     font-size: 1.5em;
 }
 
@@ -418,9 +423,9 @@ a:hover {
 
 /* PROFILE */
 .profile-image {
-  postion:relative;
+   position:relative;
 }
-.profile-image img {
+.profile-image>img {
     border-radius: 50%;
     width: calc(100vw - 4em);
     height: calc(100vw - 4em);
@@ -429,6 +434,7 @@ a:hover {
 }
 .profile-body {
    padding:1em;
+   text-align:center;
 }
 .profile-name {
    font-size:1.5em;
@@ -473,21 +479,27 @@ a:hover {
 
 
 .animallist {
-   padding:1em;
+   padding:20px;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
 }
 .animallist-image img {
-    width: 80px;
-    height: 80px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     vertical-align:text-bottom;
 }
 .animallist-item {
-    display: flex;
-    margin: 1em;
-    border-radius: 1em;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    position: relative;
+    flex-direction: column;
+    width: calc(50% - 5px);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: var(--color-white);
+    transition: all 0.3s;
     overflow: hidden;
-    background-color: white;
 }
 .animallist-description {
    padding:0.5em;
@@ -565,8 +577,36 @@ a:hover {
 
 
 
-.icon-pencil {
-   width:0.5em;
-   height:1.5em;
+.icon {
+   width:1.6em;
+   height:2em;
    vertical-align: middle;
+}
+
+.icon-top {
+   width:2em;
+   height:2em;
+   vertical-align: middle;
+}
+
+
+
+
+
+
+.image-uploader.full {
+   position:absolute;
+   top:0;
+   left:0;
+   width:100%;
+   height:100%;
+
+   background-size:contain;
+   background-repeat:no-repeat;
+}
+.ui-mobile label.image-uploader {
+   margin:0;
+}
+.image-uploader input {
+   display:none;
 }
