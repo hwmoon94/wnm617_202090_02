@@ -45,6 +45,7 @@ $(()=>{
    })
    .on("submit","#signup-form",function(e){
       e.preventDefault();
+      console.log('honk')
       checkSignupForm();
    })
    .on("submit","#list-search-form",function(e){
@@ -105,13 +106,10 @@ $(()=>{
       checkUpload(this.files[0])
       .then(d=>{
          console.log(d)
-         makeUploaderImage({
-            namespace:'user-upload',
-            folder:'uploads/',
-            name:d.result
-         })
+         makeUploaderImage(this,d.result,'uploads/')
       })
    })
+
 
 
 

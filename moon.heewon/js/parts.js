@@ -40,14 +40,14 @@ const makeAnimalProfile = templater(o=>`
 <div class="profile-image">
    <img src="${o.img}" alt="">
 </div>
-<div class="profile-body">
+<div class="profile-body-animal">
+   <div class="form-button-edit"><a href="#animal-edit-page">Edit Profile</a></div>
    <div class="profile-name">${o.name}</div>
    <div class="profile-breed"><strong>Breed</strong>: ${o.breed}</div>
    <div class="profile-color"><strong>Color</strong>: ${o.color}</div>
    <div class="profile-years"><strong>Years</strong>: ${o.years}</div>
-</div>
-<div>
-   <a href="#" class="js-animal-delete" data-id="${o.id}">Delete</a>
+   <div class="animallist-gender"><strong>gender</strong> ${o.gender}</div>
+   <a href="#" class="js-animal-delete form-button-delete" data-id="${o.id}">Delete</a>
 </div>
 `);
 
@@ -61,14 +61,14 @@ const makeAnimalPopup = o=>`
    <div class="profile-name">${o.name}</div>
    <div class="profile-breed"><strong>Breed</strong>: ${o.breed}</div>
    <div class="profile-color"><strong>Color</strong>: ${o.color}</div>
-   <div class="profile-years"><strong>Years</strong>: ${o.years}</div>
-   <div class="profile-gender"><strong>Gender</strong>: ${o.gender}</div>
-   <div class="profile-description"><strong>Description</strong>: ${o.description}</div>
+  
+   
+   
 
 </div>
 </div>
 <div>
-<a href="#" class="form-button js-animal-jump" data-id="${o.animal_id}">Visit</a> 
+<a href="#" class="form-button-visit js-animal-jump" data-id="${o.animal_id}">Detail</a> 
 </div>
 `;
 
@@ -87,6 +87,12 @@ const FormControl = ({namespace,name,displayname,type,placeholder,value}) => {
 
 
 const makeAnimalEditForm = o => `
+<div>
+   <input type="hidden" id="animal-edit-image" value="${o.img}">
+   <label class="image-uploader thumbnail picked" style="background-image:url('${o.img}')">
+      <input type="file" data-role="none" id="animal-edit-upload">
+   </label>
+</div>
 ${FormControl({
    namespace:"animal-edit",
    name:"name",
@@ -105,6 +111,14 @@ ${FormControl({
 })}
 ${FormControl({
    namespace:"animal-edit",
+   name:"years",
+   displayname:"Years",
+   type:"text",
+   placeholder:"Type the Year of the Animal",
+   value:o.years
+})}
+${FormControl({
+   namespace:"animal-edit",
    name:"color",
    displayname:"Color",
    type:"text",
@@ -113,18 +127,18 @@ ${FormControl({
 })}
 ${FormControl({
    namespace:"animal-edit",
-   name:"years",
-   displayname:"Years",
-   type:"text",
-   placeholder:"Type the Year of the Animal",
-   value:o.years
-})}
-${FormControl({
-   namespace:"animal-gender",
    name:"gender",
    displayname:"Gender",
    type:"text",
    placeholder:"Type Animal Gender",
+   value:o.gender
+})}
+${FormControl({
+   namespace:"animal-edit",
+   name:"description",
+   displayname:"Descriptionr",
+   type:"text",
+   placeholder:"Type Animal Description",
    value:o.gender
 })}
 <div class="form-control">
@@ -182,8 +196,7 @@ const makeFilterList = (animals) => {
 
 
 
-const makeUploaderImage = ({namespace,folder,name}) => {
-   $(`#${namespace}-image`).val(folder+name);
-   $(`#${namespace}-page .image-uploader`)
-      .css({'background-image':`url('${folder+name}')`})
+const makeUploaderImage = (el,name,folder='') => {
+   $(el).parent().css({'background-image':`url('${folder+name}')`}).addClass("picked")
+      .prev().val(folder+name)
 }

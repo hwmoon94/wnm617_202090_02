@@ -5,7 +5,7 @@
 const checkSignupForm = () => {
    let username = $("#signup-username").val();
    let email = $("#signup-email").val();
-   let  = $("#signup-password").val();
+   let password = $("#signup-password").val();
    let passwordconfirm = $("#signup-password-confirm").val();
 
    if(password!=passwordconfirm) {
@@ -69,16 +69,17 @@ const checkAnimalAddForm = () => {
 
 
 const checkAnimalEditForm = () => {
-   let name = $("#animal-add-name").val();
-   let breed = $("#animal-add-breed").val();
-   let color = $("#animal-add-color").val();
-   let years = $("#animal-add-years").val();
-   let gender = $("#animal-add-gender").val();
-   let description = $("#animal-add-description").val();
+   let name = $("#animal-edit-name").val();
+   let breed = $("#animal-edit-breed").val();
+   let color = $("#animal-edit-color").val();
+   let years = $("#animal-edit-years").val();
+   let gender = $("#animal-edit-gender").val();
+   let description = $("#animal-edit-description").val();
+   let image = $("#animal-edit-image").val();
 
    query({
       type:'update_animal',
-      params:[name,breed,color, years, gender, description,sessionStorage.animalId]})
+      params:[name,breed,color, years, gender, description, image,sessionStorage.animalId]})
    .then(d=>{
       if(d.error) {
          throw d.error;

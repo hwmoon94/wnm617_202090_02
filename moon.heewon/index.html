@@ -85,7 +85,7 @@
                <input id="signup-password-confirm" type="password" class="form-input" data-role="none" placeholder="Type your password">
             </div>
             <div class="form-control">
-               <a href="#recent-page" class="form-button">Sign Up</a>
+               <input type="submit" class="form-button" value="Sign Up" data-role="none">
             </div>
             <div class="form-control signin-alt">
                Already have an account?
@@ -119,7 +119,7 @@
                <div class="modal-close-floater top right">
                   <div class="btn-circle" data-deactivate="#recent-animal-modal">&times;</div>
                </div>
-               <div class="modal-head">head</div>
+               <div class="modal-head">Animal Information</div>
                <div class="modal-body"></div>
             </div>
          </div>
@@ -146,7 +146,7 @@
 
     <section data-role="page" id="list-page">
          <header data-role="header">
-            <h1 style="color:#ED6646;">My Dogs</h1>
+            <h1 style="color:#ED6646;">Dogs</h1>
          </header>
          <header data-role="header">
          
@@ -191,7 +191,7 @@
 
    <section data-role="page" id="user-profile-page">
       <header data-role="header">
-         <h1>User Profile</h1>
+         <h1 style="color:#ED6646;">User Profile</h1>
          <ul>
             <li class="flex-stretch"></li>
             <li style="margin-top:6px"><a href="#settings-page"><img src="img/icon/settings.png" class="icon-top" style="float:right"></a></div>
@@ -255,7 +255,7 @@
       <div data-role="main">
          <form id="user-edit-form" data-ajax="false" style="padding:1em"></form>
       <div class="form-control" style="padding:1em">
-            <button type="submit" class="form-button js-user-edit" data-role="none">Save</button>
+            <button type="submit" class="form-button js-user-edit" data-role="none"><img src="img/icon/save.png" class="icon-top"></button>
       </div>
       </div>
    </section>
@@ -283,7 +283,7 @@
                <input id="password-confirm" type="text" class="form-input" data-role="none" placeholder="Type your new password again">
             </div>
             <div class="form-control">
-               <button type="submit" class="form-button js-user-edit" data-role="none">Save</button>
+               <button type="submit" class="form-button js-user-edit" data-role="none"><img src="img/icon/save.png" class="icon-top"></button>
       </div>
          </form>
       </div>
@@ -292,11 +292,11 @@
 
    <section data-role="page" id="user-upload-page">
          <header data-role="header">
-            <h1>Choose Photo</h1>
+            <h1 style="color:#ED6646;">Choose Photo</h1>
             <ul>
-               <li><a href="#" data-rel="back">Back</a></li>
+               <li><a href="#" data-rel="back"><img src="img/icon/back.png" class="icon-top"></a></li>
                <li class="flex-stretch"></li>
-               <li><a href="#" class="js-user-upload">Save</a></li>
+               <li><a href="#" class="js-user-upload"><img src="img/icon/save.png" class="icon-top"></a></li>
             </ul>
 
          </header>
@@ -319,30 +319,24 @@
 
 <section data-role="page" id="animal-profile-page">
       <header data-role="header">
-         <h1>Animal Page</h1>
+         <h1 style="color:#ED6646;">Animal Page</h1>
          <ul>
-            <li><a href="#" data-rel="back">
-               <img src="img/icon/left.svg" alt="" class="icon">
-            </a></li>
-            <li class="flex-stretch"></li>
-            <li><a href="#animal-edit-page">
-               <img src="img/icon/pencil.svg" alt="" class="icon">
-            </a></li>
+            <li><a href="#" data-rel="back"><img src="img/icon/back.png" class="icon-top"></a></li>
+            
          </ul>
       </header>
       <div data-role="main" class="display-flex flex-column">
-         <div class="animal-top">
-            <div class="map"></div>
-            <div class="floater bottom right">
-               <a href="#location-add-page" class="btn-circle">&plus;</a>
-            </div>
-         </div>
          <div class="animal-bottom">
           <div class="overscroll profile">
             <div class="profile"></div>
          </div>
          </div>
-
+      <div class="animal-top">
+            <div class="map"></div>
+            <div class="floater bottom right">
+               <a href="#location-add-page" class="btn-circle">&plus;</a>
+            </div>
+         </div>
       </div>
    </section>
 
@@ -351,11 +345,12 @@
       <header data-role="header">
          <h1>Animal Info</h1>
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back"><img src="img/icon/back.png" class="icon-top"></a></li>
             <li class="flex-stretch"></li>
             <li><a href="#" class="js-animal-add">Save</a></li>
          </ul>
       </header>
+     
       <div data-role="main" class="display-flex flex-column">
          <form id="animal-add-form" data-ajax="false" style="padding:1em">
             <input type="hidden" id="animal-add-destination" value="#list-page">
@@ -384,6 +379,7 @@
                <textarea id="animal-add-description" class="form-input" data-role="none" placeholder="Type animal description"></textarea>
             </div>
          </form>
+         </div>
       </div>
    </section>
 
@@ -391,9 +387,9 @@
       <header data-role="header">
          <h1>Animal Info</h1>
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back"><img src="img/icon/back.png" class="icon-top"></a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#" class="js-animal-edit">Save</a></li>
+            <li><a href="#" class="js-animal-edit"><img src="img/icon/save.png" class="icon-top"></a></li>
          </ul>
       </header>
       <div data-role="main" class="display-flex flex-column">
@@ -409,9 +405,9 @@
       <header data-role="header">
          <h1>Choose Location</h1>
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back"><img src="img/icon/back.png" class="icon-top"></a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#location-description-page">Next</a></li>
+            <li><a href="#location-description-page"><img src="img/icon/next.png" class="icon-top"></a></li>
          </ul>
       </header>
       <div data-role="main">
@@ -425,9 +421,9 @@
       <header data-role="header">
          <h1>Describe Location</h1>
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back"><img src="img/icon/back.png" class="icon-top"></a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#" class="js-location-add">Save</a></li>
+            <li><a href="#" class="js-location-add"><img src="img/icon/save.png" class="icon-top"></a></li>
          </ul>
       </header>
       <div data-role="main">

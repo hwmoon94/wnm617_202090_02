@@ -129,6 +129,38 @@ a:hover {
     text-align: center;
 }
 
+.form-button-visit {
+    display: inline-block;
+    width: 100%;
+    border-width: 0;
+    background-color: var(--color-neutral-light);
+    font: inherit;
+    color:var(--color-neutral-lighter);
+    padding: 0.7em 1em;
+    border-radius:2em;
+    margin: 0;
+    outline: 0;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.form-button-delete {
+    color:var(--color-neutral-light);
+}
+
+.form-button-edit {
+    display: inline-block;
+    width: 100%;
+    border-width: 0;
+    background-color: var(--color-neutral-light);
+    font: inherit;
+    color:var(--color-neutral-lighter);
+    padding: 0.7em 1em;
+    border-radius:2em;
+    margin: 0;
+    outline: 0;
+    text-align: center;
+}
 
 
 .hotdog {
@@ -264,9 +296,13 @@ a:hover {
     opacity: 0;
     pointer-events: none;
     z-index:10;
+    margin: 1em;
+    width: calc(100% - 2em);
 }
 .modal.active {
    opacity:1;
+   margin: 1em;
+   width: calc(100% - 2em);
 }
 .modal-back {
     position: absolute;
@@ -311,6 +347,7 @@ a:hover {
     flex-direction: column;
     transition:all 0.3s;
     box-shadow:0 0 5px rgba(0,0,0,0.3);
+    width: calc(100% - 2em);
 }
 
 .modal-drawer.left,
@@ -323,7 +360,7 @@ a:hover {
 
 .modal-drawer.top,
 .modal-drawer.bottom {
-   height:30vh;
+   height:35vh;
    width:100%;
 }
 .modal-drawer.top { top:0; transform:translateY(-100%); }
@@ -358,11 +395,12 @@ a:hover {
 .modal-toast {
    position: absolute;
    width: 50%;
-   background-color: #e7ff3f;
+   background-color: #D8DB5B;
    box-shadow: 1px 1px 5px rgba(0,0,0,0.15);
    border-radius: 0.2em;
    padding: 1em;
    text-align: center;
+   color:#ED6646;
    left: 50%;
    transition: all 0.3s;
 }
@@ -433,13 +471,14 @@ a:hover {
     margin: 2em;
 }
 .profile-body {
-   padding:1em;
-   text-align:center;
+   padding:1.2em;
+}
+.profile-body-animal {
+   padding:0em 1.2em;
 }
 .profile-name {
    font-size:1.5em;
-   margin-bottom: 1em;
-   text-align: center;
+   margin-top: 0.5em;
 }
 
 #animal-profile-page .profile-image {
@@ -448,8 +487,8 @@ a:hover {
    justify-content:center;
 }
 #animal-profile-page .profile-image img {
-    width: calc(100vw - 8em);
-    height: calc(100vw - 8em);
+    width: calc(80vw - 8em);
+    height: calc(80vw - 8em);
 }
 
 
@@ -605,8 +644,37 @@ a:hover {
    background-repeat:no-repeat;
 }
 .ui-mobile label.image-uploader {
-   margin:0;
+   margin:0 auto;
 }
 .image-uploader input {
    display:none;
+}
+
+.image-uploader.thumbnail {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    position:relative;
+    margin:auto;
+    border: 1px solid var(--color-neutral-light);
+}
+.image-uploader.thumbnail:not(.picked){
+  border:2px solid var(--color-neutral-light);
+}
+/* This will add the floating plus symbol to the imagepicker */
+.image-uploader.thumbnail:before {
+  color:black;
+  content:'+';
+  position:absolute;
+  font-size:3em;
+  vertical-align:middle;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+/* This will hide the plus symbol behind the background of the imagepicker if the class "picked" is added to the element */
+.image-uploader.thumbnail.picked:before {
+  z-index:-1;
 }

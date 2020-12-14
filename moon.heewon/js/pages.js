@@ -100,11 +100,7 @@ const UserUploadPage = async() => {
    }).then(d=>{
       console.log(d)
 
-      makeUploaderImage({
-         namespace:'user-upload',
-         folder:'',
-         name:d.result[0].img
-      })
+      makeUploaderImage($("#user-upload-input"),d.result[0].img)
    });
 }
 
@@ -168,7 +164,7 @@ const LocationAddPage = async() => {
       let posFromCenter = {
          lat:map.getCenter().lat(),
          lng:map.getCenter().lng(),
-         icon:"img/icon/marker.svg"
+         icon:"img/icon/marker.png"
       };
 
       $("#location-add-lat").val(posFromClick.lat)
