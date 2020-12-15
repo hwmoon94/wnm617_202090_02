@@ -133,14 +133,6 @@ ${FormControl({
    placeholder:"Type Animal Gender",
    value:o.gender
 })}
-${FormControl({
-   namespace:"animal-edit",
-   name:"description",
-   displayname:"Descriptionr",
-   type:"text",
-   placeholder:"Type Animal Description",
-   value:o.gender
-})}
 <div class="form-control">
    <label for="animal-edit-description" class="form-label">Description</label>
    <textarea id="animal-edit-description" class="form-input" data-role="none" placeholder="Type animal description">${o.description}</textarea>
