@@ -125,6 +125,7 @@ const AnimalProfilePage = async() => {
       params:[sessionStorage.animalId]
    }).then(d=>{
       makeMap("#animal-profile-page .map").then(map_el=>{
+         d.result.icon = 'img/icon/marker.png'
          makeMarkers(map_el,d.result);
       })
    })
@@ -159,7 +160,7 @@ const LocationAddPage = async() => {
       let posFromClick = {
          lat:e.latLng.lat(),
          lng:e.latLng.lng(),
-         icon:"img/icon/marker.svg"
+         icon:"img/icon/marker.png"
       };
       let posFromCenter = {
          lat:map.getCenter().lat(),
